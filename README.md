@@ -1,19 +1,20 @@
 # jenkins-project
-first  install jenkins in local computer or in an EC2 instance then install sonar qube scanner plugin and activate it in tools.
+first  install jenkins in local computer or in an EC2 instance( better follow the official page for installation) then install sonar qube scanner plugin and activate it in tools.
 create a node1 with ubuntu in ec2 instance in aws 
-To install java
-# sudo apt install openjdk-11-jre
-create a folder
-# mkdir jenkins_slave
-# cd jenkins_slave
-# chmod 755 jenkins_slave
-in jenkins_slave folder
-# ssh-keygen
-# cd ~
-# cd/root/.ssh
-# ls
+# create a node and install java in it
+#sudo apt update
+#sudo apt install openjdk-17-jre
+#  in node_02 create a folder
+#mkdir jenkins-slave
+#cd jenkins_slave
+#chmod 755 jenkins_slave
+# in jenkins-slave folder
+#ssh-keygen
+#cd ~
+#cd/root/.ssh
+#ls
 it shows id_rsa ( private key) and id_rsa.pub (public key)
-# cat id_rsa
+#cat id_rsa
 copy the key and go to credentials in manage jenkins 
 select ssh 
 as kind and then add private key
@@ -41,6 +42,16 @@ vi authorized_keys
 paste the public key ans save it
 now go to test node in nodes in manage jenkins
 then click on bring this node  back online and click on launch agent
+now node is connected
+# install plugins
+#install jdk (Eclipse Temurin installer)
+#install docker ,docker pipeline ,docker-build-dtep,cloud bees docker build and publish
+#install owaspdependency check
+# goto tools to cofigure jdk ,maven,docker
+# now create a free-style-job
+# add git hub credentials by generating token in developer settings in github
+# select 2 builds max in discard builds
+
 
 
 
