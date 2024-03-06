@@ -2,18 +2,18 @@
 first  install jenkins in local computer or in an EC2 instance then install sonar qube scanner plugin and activate it in tools.
 create a node1 with ubuntu in ec2 instance in aws 
 To install java
- # sudo apt install openjdk-11-jre
+#sudo apt install openjdk-11-jre
 create a folder
-# mkdir jenkins_slave
-# cd jenkins_slave
-# chmod 755 jenkins_slave
+#mkdir jenkins_slave
+#cd jenkins_slave
+#chmod 755 jenkins_slave
 in jenkins_slave folder
-# ssh-keygen
-# cd ~
-# cd/root/.ssh
-# ls
+#ssh-keygen
+#cd ~
+#cd/root/.ssh
+#ls
 it shows id_rsa ( private key) and id_rsa.pub (public key)
-# cat id_rsa
+#cat id_rsa
 copy the key and go to credentials in manage jenkins 
 select ssh 
 as kind and then add private key
@@ -26,15 +26,15 @@ select permanent agent
 number of executors: 3 
 remote root dirctory : /home/ubuntu/jenkins-slave/
 label: slave-2
-# use this node with label expressions
+#use this node with label expressions
 launch method: launch via ssh
 host: ip address of node1 ec2 instance
 credentials: root(private-key) 
 verification strategy : non verifying verification strategy
 now click on save
-# it shows test-node offline (error)
+#it shows test-node offline (error)
 now go to mobaxterm terminal
-# cat id_rsa.pub
+#cat id_rsa.pub
 copy the public key
 then
 vi authorized_keys
