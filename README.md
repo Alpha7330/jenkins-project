@@ -5,16 +5,16 @@ create a node1 with ubuntu in ec2 instance in aws
 #sudo apt update
 #sudo apt install openjdk-17-jre
 #  in node_02 create a folder
-#mkdir jenkins-slave
-#cd jenkins_slave
-#chmod 755 jenkins_slave
+$ mkdir jenkins-slave
+$ cd jenkins_slave
+$ chmod 755 jenkins_slave
 # in jenkins-slave folder
-#ssh-keygen
-#cd ~
-#cd/root/.ssh
-#ls
+$ ssh-keygen
+$ cd ~
+$ cd/root/.ssh
+$ ls
 it shows id_rsa ( private key) and id_rsa.pub (public key)
-#cat id_rsa
+$ cat id_rsa
 copy the key and go to credentials in manage jenkins 
 select ssh 
 as kind and then add private key
@@ -35,10 +35,10 @@ verification strategy : non verifying verification strategy
 now click on save
 # it shows test-node offline (error)
 now go to mobaxterm terminal
-# cat id_rsa.pub
+$ cat id_rsa.pub
 copy the public key
 then
-vi authorized_keys
+$ vi authorized_keys
 paste the public key ans save it
 now go to test node in nodes in manage jenkins
 then click on bring this node  back online and click on launch agent
@@ -51,6 +51,21 @@ now node is connected
 # now create a free-style-job
 # add git hub credentials by generating token in developer settings in github
 # select 2 builds max in discard builds
+# if you forgot jenkins username and password follow bellow steps
+$ cd /var/lib/jenkins
+$ ls
+$ cp /var/lib/jenkins/config.xml /var/lib/jenkins/config.xml.back
+$ ls
+$ sudo vi /var/lib/jenkins/config.xml
+$ In config.xml file <useSecurity>true</useSecurity> will be change with <useSecurity>false</useSecurity>
+$ systemctl restart jenkins
+$ sudo systemctl status jenkins
+# now create a pipeline
+new job named pipeline with template pipeline
+# select hello world script
+# use pipeline syntax if necessary
+
+
 
 
 
