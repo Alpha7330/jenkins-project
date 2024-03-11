@@ -65,6 +65,34 @@ new job named pipeline with template pipeline
 # select hello world script
 # use pipeline syntax if necessary
 
+$$$$$$$$$$$$$$$$$$$$$$$$
+
+pipeline {
+    agent any
+    tools{
+        jdk 'jdk17'
+        maven 'maven1'
+    }
+
+    stages {
+        stage('Git checkout') {
+            steps {
+                git branch: 'main', credentialsId: '2d127ce0-844a-4eb0-ac0c-94adf8c8ba38', url: 'https://github.com/Alpha7330/Eshopping.git'
+            }
+        }
+        stage('COMPILE') {
+            steps {
+                sh "mvn clean compile -DskipTests=true"
+            }
+        }
+    }
+}
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+$ install OWASP DEPENDENCY CHECK PLUGIN
+
 
 
 
